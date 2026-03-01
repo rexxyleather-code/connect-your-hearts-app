@@ -14,13 +14,66 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      profiles: {
+        Row: {
+          avatar_url: string | null
+          bio: string
+          created_at: string
+          date_of_birth: string | null
+          display_name: string
+          gender: string
+          id: string
+          interests: string[]
+          location: string
+          max_age: number
+          max_distance: number
+          min_age: number
+          preferred_genders: string[]
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          avatar_url?: string | null
+          bio?: string
+          created_at?: string
+          date_of_birth?: string | null
+          display_name?: string
+          gender?: string
+          id?: string
+          interests?: string[]
+          location?: string
+          max_age?: number
+          max_distance?: number
+          min_age?: number
+          preferred_genders?: string[]
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          avatar_url?: string | null
+          bio?: string
+          created_at?: string
+          date_of_birth?: string | null
+          display_name?: string
+          gender?: string
+          id?: string
+          interests?: string[]
+          location?: string
+          max_age?: number
+          max_distance?: number
+          min_age?: number
+          preferred_genders?: string[]
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      is_profile_owner: { Args: { profile_user_id: string }; Returns: boolean }
     }
     Enums: {
       [_ in never]: never
