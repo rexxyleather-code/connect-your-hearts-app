@@ -14,6 +14,51 @@ export type Database = {
   }
   public: {
     Tables: {
+      likes: {
+        Row: {
+          created_at: string
+          id: string
+          is_like: boolean
+          liked_id: string
+          liker_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          is_like?: boolean
+          liked_id: string
+          liker_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          is_like?: boolean
+          liked_id?: string
+          liker_id?: string
+        }
+        Relationships: []
+      }
+      matches: {
+        Row: {
+          created_at: string
+          id: string
+          user1_id: string
+          user2_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          user1_id: string
+          user2_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          user1_id?: string
+          user2_id?: string
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           avatar_url: string | null

@@ -1,4 +1,4 @@
-import { Heart, LogOut } from "lucide-react";
+import { Heart, LogOut, Compass, Users } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "@/hooks/useAuth";
 import { supabase } from "@/integrations/supabase/client";
@@ -27,6 +27,18 @@ const Navbar = () => {
         <div className="flex items-center gap-3">
           {user ? (
             <>
+              <Link
+                to="/discover"
+                className="text-sm font-medium text-foreground hover:text-primary transition-colors px-4 py-2 flex items-center gap-1.5"
+              >
+                <Compass className="w-4 h-4" /> Discover
+              </Link>
+              <Link
+                to="/matches"
+                className="text-sm font-medium text-foreground hover:text-primary transition-colors px-4 py-2 flex items-center gap-1.5"
+              >
+                <Users className="w-4 h-4" /> Matches
+              </Link>
               <Link
                 to="/create-profile"
                 className="text-sm font-medium bg-gradient-primary text-primary-foreground px-5 py-2.5 rounded-full hover:opacity-90 transition-opacity"
