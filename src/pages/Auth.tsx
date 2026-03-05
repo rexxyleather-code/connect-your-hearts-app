@@ -18,9 +18,15 @@ const Auth = () => {
 
     try {
       if (isLogin) {
-        const { error } = await supabase.auth.signInWithPassword({ email, password });
+        const { data: authData, error } = await supabase.auth.signInWithPassword({ email, password });
         if (error) throw error;
-        navigate("/create-profile");
+        // Check if user already has a profile
+        const { data: profile } = await supabase
+          .from("profiles")
+          .select("id")
+          .eq("user_id", authData.user.id)
+          .maybeSingle();
+        navigate(profile ? "/discover" : "/create-profile");
       } else {
         const { error } = await supabase.auth.signUp({
           email,
